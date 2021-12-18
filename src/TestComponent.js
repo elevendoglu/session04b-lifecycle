@@ -7,6 +7,7 @@ export default class TestComponent extends Component {
     this.state = {
         name: "Michael",
         color: "blue",
+        count: 0,
     };
     console.log("Hello from TestComponent constructor")
     }
@@ -20,7 +21,11 @@ export default class TestComponent extends Component {
 
     componentDidMount(){
         console.log("Hello from TestComponent")
-        console.log(this.state)
+        // console.log(this.state)
+    }
+
+    HandleClick = () => {
+        this.setState({ count: this.state.count + 1 })
     }
 
     render() {
@@ -28,6 +33,8 @@ export default class TestComponent extends Component {
         return (
             <div>
                 <p>Lorem ipsum dolor sit amet.</p>
+                <p> {this.state.count} </p>
+                <button onClick={this.HandleClick}>increase</button>
             </div>
         )
     }
