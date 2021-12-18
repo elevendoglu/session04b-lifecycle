@@ -14,14 +14,18 @@ export default class TestComponent extends Component {
 
     static getDerivedStateFromProps(props, state){
         console.log("Hello from getDerivedStateFromProps")
-        console.log("Props: ", props)
-        console.log("state: ", state)
+        // console.log("Props: ", props)
+        // console.log("state: ", state)
         return {model: "new model"}
     }
 
     componentDidMount(){
         console.log("Hello from TestComponent")
         // console.log(this.state)
+    }
+
+    componentDidUpdate(prevProps) {
+        console.log("TestComp componentDidUpdate")
     }
 
     HandleClick = () => {
