@@ -14,23 +14,34 @@ export default class TestComponent extends Component {
 
     static getDerivedStateFromProps(props, state){
         console.log("Hello from getDerivedStateFromProps")
-        // console.log("Props: ", props)
-        // console.log("state: ", state)
-        return {model: "new model"}
+        console.log("Props: ", props)
+        console.log("state: ", state)
+        // return {model: "new model"}
+        return null
+
     }
 
     componentDidMount(){
-        console.log("Hello from TestComponent")
+        console.log("Hello from TestComponent componentDidMount")
         // console.log(this.state)
+        setTimeout(() => {
+            this.setState({count: this.state.count + 1 })
+        }, 3000)
     }
 
     shouldComponentUpdate(){
         console.log("ShouldComponentUpdate!....")
-        return this.state.count < 5 ? true : false
+        return this.state.count < 3 ? true : false
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState, snapshot) {
         console.log("TestComp componentDidUpdate")
+        console.log("Prevprops: ", prevProps)
+        console.log("Prevstate: ", prevState)
+    }
+
+    componentWillUnmount() {
+        console.log("component BYE BYE...")
     }
 
     HandleClick = () => {
