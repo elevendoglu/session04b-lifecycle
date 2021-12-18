@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+var myT;
+
 export default class TestComponent extends Component {
     constructor(props) {
     super(props);
@@ -24,7 +26,7 @@ export default class TestComponent extends Component {
     componentDidMount(){
         console.log("Hello from TestComponent componentDidMount")
         // console.log(this.state)
-        setTimeout(() => {
+        myT = setTimeout(() => {
             this.setState({count: this.state.count + 1 })
         }, 3000)
     }
@@ -42,6 +44,7 @@ export default class TestComponent extends Component {
 
     componentWillUnmount() {
         console.log("component BYE BYE...")
+        clearTimeout(myT)
     }
 
     HandleClick = () => {
