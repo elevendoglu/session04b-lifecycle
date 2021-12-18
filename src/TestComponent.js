@@ -24,6 +24,11 @@ export default class TestComponent extends Component {
         // console.log(this.state)
     }
 
+    shouldComponentUpdate(){
+        console.log("ShouldComponentUpdate!....")
+        return this.state.count < 5 ? true : false
+    }
+
     componentDidUpdate(prevProps) {
         console.log("TestComp componentDidUpdate")
     }
